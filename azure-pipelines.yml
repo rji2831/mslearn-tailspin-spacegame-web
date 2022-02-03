@@ -86,5 +86,6 @@ stages:
             inputs:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appType: 'webAppLinux'
-              WebAppName: '$(WebAppName)'
+              appName: '$(WebAppName)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+              runtimeStack: 'DOTNETCORE|5.0'
