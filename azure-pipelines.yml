@@ -81,7 +81,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - task: AzureWebApp@1
+#          - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
               azureSubscription: 'Resource Manager - Tailspin - Space Game-Space Game - web - Pipeline'
@@ -89,3 +89,13 @@ stages:
               appName: '$(WebAppName)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 #              runtimeStack: 'DOTNETCORE|5.0'
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'Resource Manager - Tailspin - Space Game-Space Game - web - Pipeline'
+              appType: 'webAppLinux'
+              appName: 'rji2831-tailspin-space-game-1234'
+              deployToSlotOrASE: true
+              resourceGroupName: 'tailspin-space-game-rg'
+              slotName: 'production'
+              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              runtimeStack: 'DOTNETCORE|5.0'
