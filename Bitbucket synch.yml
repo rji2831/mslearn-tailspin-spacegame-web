@@ -1,0 +1,13 @@
+Could not determine the agent queue name, please manually add a queue to target.
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool: server
+  steps:
+  - checkout: self
+    clean: true
+  - task: shellexec@0
+    displayName: 'shellexec '
+    inputs:
+      code: ls -la
+...
