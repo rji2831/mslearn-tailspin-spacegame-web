@@ -1,12 +1,8 @@
-jobs:
-- job: Job_1
-  displayName: Agent job 1
-  pool: server
-  steps:
-  - checkout: self
-    clean: true
+trigger:
+- '*'
+pool: server
+steps:
   - task: shellexec@0
     displayName: 'shellexec '
     inputs:
       code: ls -la
-...
