@@ -4,11 +4,11 @@
 name: .NET
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "gh-ASAP" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
   
 
 jobs:
